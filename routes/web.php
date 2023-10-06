@@ -25,7 +25,7 @@ Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::post('/sign',[LoginController::class, 'sign'])->name('sign');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as'=> 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin|writer'], 'as'=> 'admin.'], function(){
     Route::get('/dashboard',[HomeController::class, 'dashboard'])->name('dashboard');
     
     Route::get('/client',[DataTableController::class, 'client'])->name('client');

@@ -25,7 +25,10 @@ class HomeController extends Controller
     }
 
     public function dashboard(){
-        return view('dashboard');
+
+            return view('dashboard');
+        
+        return abort(403);
     }
 
     public function create(){
